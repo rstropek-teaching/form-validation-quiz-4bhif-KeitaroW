@@ -6,7 +6,9 @@
   "scripts": {
     "copy-bootstrap": "cpx ./node_modules/bootstrap/dist/css/bootstrap.css dist/ && cpx ./node_modules/bootstrap/dist/js/bootstrap.js dist/",
     "copy-jquery": "cpx ./node_modules/jquery/dist/jquery.js dist/",
-    "build": "cpx *.{html,css} dist/ && npm run copy-bootstrap && npm run copy-jquery",
+    "copy-form-validation": "cpx ./form-validation.js dist/",
+    "build-ts": "./node_modules/.bin/tsc.cmd",
+    "build": "cpx *.{html,css} dist/ && npm run copy-bootstrap && npm run copy-jquery && npm run build-ts && npm run copy-form-validation",
     "start": "browser-sync start -c bs-config.js"
   },
   "author": "Rainer Stropek",
@@ -16,7 +18,9 @@
     "jquery": "^3.2.1"
   },
   "devDependencies": {
+    "@types/jquery": "^3.2.1",
     "browser-sync": "^2.18.13",
-    "cpx": "^1.5.0"
+    "cpx": "^1.5.0",
+    "typescript": "^2.6.1"
   }
 }
